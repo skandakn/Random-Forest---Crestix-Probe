@@ -1,0 +1,146 @@
+{
+  "data_source": "synthetic_ukea_32x32",
+  "splits": {
+    "train_events": [
+      "ukea_event_06",
+      "ukea_event_07",
+      "ukea_event_01",
+      "ukea_event_08",
+      "ukea_event_04",
+      "ukea_event_03"
+    ],
+    "val_events": [
+      "ukea_event_05",
+      "ukea_event_10"
+    ],
+    "test_events": [
+      "ukea_event_02",
+      "ukea_event_09"
+    ],
+    "train_samples": 110592,
+    "val_samples": 36864,
+    "test_samples": 36864
+  },
+  "best_hyperparameters": {
+    "n_estimators": 50,
+    "max_depth": 12,
+    "min_samples_leaf": 5,
+    "max_features": "sqrt"
+  },
+  "tuning_trials": [
+    {
+      "params": {
+        "n_estimators": 50,
+        "max_depth": 12,
+        "min_samples_leaf": 5,
+        "max_features": "sqrt"
+      },
+      "val_rmse_m": 0.00897866822549574,
+      "val_mae_m": 0.0065156733907415065,
+      "fit_time_sec": 2.1655419999988226
+    },
+    {
+      "params": {
+        "n_estimators": 100,
+        "max_depth": 18,
+        "min_samples_leaf": 3,
+        "max_features": "sqrt"
+      },
+      "val_rmse_m": 0.009254668488083337,
+      "val_mae_m": 0.006801211620371652,
+      "fit_time_sec": 6.093578899999557
+    },
+    {
+      "params": {
+        "n_estimators": 100,
+        "max_depth": null,
+        "min_samples_leaf": 2,
+        "max_features": 0.5
+      },
+      "val_rmse_m": 0.009377023445670223,
+      "val_mae_m": 0.0066129388248855605,
+      "fit_time_sec": 15.746874000000389
+    }
+  ],
+  "timings": {
+    "tuning_time_sec": 24.3258,
+    "train_time_sec": 2.1784,
+    "val_inference_time_sec": 0.0272,
+    "test_inference_time_sec": 0.0263,
+    "test_ms_per_sample": 0.000714
+  },
+  "validation_metrics": {
+    "mae_m": 0.006515673390741506,
+    "rmse_m": 0.00897866822549574,
+    "r2": 0.7968268647259376,
+    "flood_threshold_m": 0.03,
+    "flood_accuracy": 0.9057888454861112,
+    "flood_precision": 0.9995331247957421,
+    "flood_recall": 0.8607671276937923,
+    "flood_f1": 0.9249746170961958,
+    "num_samples": 36864
+  },
+  "test_metrics": {
+    "mae_m": 0.005085616862398672,
+    "rmse_m": 0.008861438961109276,
+    "r2": 0.8144681374593928,
+    "flood_threshold_m": 0.03,
+    "flood_accuracy": 0.8633626302083334,
+    "flood_precision": 0.9422861710631495,
+    "flood_recall": 0.7320375085387816,
+    "flood_f1": 0.8239611365463251,
+    "num_samples": 36864
+  },
+  "top_10_features": [
+    {
+      "feature": "depth_roc",
+      "importance": 0.147563
+    },
+    {
+      "feature": "rain_intensity_mm_5min",
+      "importance": 0.109449
+    },
+    {
+      "feature": "depth_lag_5m",
+      "importance": 0.090323
+    },
+    {
+      "feature": "rain_roll_sum_15m",
+      "importance": 0.086506
+    },
+    {
+      "feature": "depth_lag_15m",
+      "importance": 0.08067
+    },
+    {
+      "feature": "depth_t_m",
+      "importance": 0.076344
+    },
+    {
+      "feature": "depth_lag_10m",
+      "importance": 0.063075
+    },
+    {
+      "feature": "depth_nbr_mean_3x3",
+      "importance": 0.043506
+    },
+    {
+      "feature": "rain_roc",
+      "importance": 0.042647
+    },
+    {
+      "feature": "elevation_m",
+      "importance": 0.037544
+    }
+  ],
+  "reproducibility": {
+    "random_seed": 42,
+    "python_version": "3.11.9",
+    "scikit_learn_version": "1.9.1",
+    "numpy_version": "2.4.6",
+    "pandas_version": "3.1.1",
+    "joblib_version": "1.6.0",
+    "model_artifact": "artifacts\\random_forest_model.joblib",
+    "predictions_csv": "outputs\\test_predictions.csv"
+  }
+}
